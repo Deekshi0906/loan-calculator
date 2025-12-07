@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator - Smart Loan Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏠 EMI Calculator</h1>
+            <p>Calculate your monthly loan installments with ease</p>
+        </header>
+
+        <div class="calculator-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Enter Loan Details</h2>
+                
+                <div class="input-group">
+                    <label for="principal">Loan Amount (₹)</label>
+                    <input type="number" id="principal" placeholder="Enter principal amount" min="1000" step="1000">
+                    <div class="range-container">
+                        <input type="range" id="principalRange" min="1000" max="10000000" step="1000" value="500000">
+                        <div class="range-labels">
+                            <span>1K</span>
+                            <span>50L</span>
+                            <span>1Cr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="interestRate">Annual Interest Rate (%)</label>
+                    <input type="number" id="interestRate" placeholder="Enter interest rate" min="0" max="30" step="0.1" value="8.5">
+                    <div class="range-container">
+                        <input type="range" id="interestRateRange" min="0" max="30" step="0.1" value="8.5">
+                        <div class="range-labels">
+                            <span>0%</span>
+                            <span>15%</span>
+                            <span>30%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="tenure">Loan Tenure (Years)</label>
+                    <input type="number" id="tenure" placeholder="Enter tenure in years" min="1" max="30" step="1" value="20">
+                    <div class="range-container">
+                        <input type="range" id="tenureRange" min="1" max="30" step="1" value="20">
+                        <div class="range-labels">
+                            <span>1Y</span>
+                            <span>15Y</span>
+                            <span>30Y</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="calculateBtn" class="calculate-btn">Calculate EMI</button>
+                <button id="resetBtn" class="reset-btn">Reset</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2>Loan Summary</h2>
+                
+                <div class="emi-display">
+                    <div class="emi-amount">
+                        <span class="label">Monthly EMI</span>
+                        <span class="amount" id="emiValue">₹ 0</span>
+                    </div>
+                </div>
+
+                <div class="summary-cards">
+                    <div class="card">
+                        <div class="card-icon">💰</div>
+                        <div class="card-content">
+                            <span class="card-label">Total Interest</span>
+                            <span class="card-value" id="totalInterest">₹ 0</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <div class="card-content">
+                            <span class="card-label">Total Payment</span>
+                            <span class="card-value" id="totalPayment">₹ 0</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">⏰</div>
+                        <div class="card-content">
+                            <span class="card-label">Loan Tenure</span>
+                            <span class="card-value" id="loanTenure">0 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="chart-section">
+                    <h3>Payment Breakdown</h3>
+                    <div class="chart-container">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Amortization Table -->
+                <div class="amortization-section">
+                    <h3>Amortization Schedule (First 12 Months)</h3>
+                    <div class="table-container">
+                        <table id="amortizationTable">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>EMI</th>
+                                    <th>Principal</th>
+                                    <th>Interest</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="amortizationBody">
+                                <!-- Table rows will be inserted by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Chart.js for the pie chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #8A2BE2 0%, #FF69B4 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3);
+}
+
+.input-section, .results-section {
+    padding: 20px;
+}
+
+.input-section h2, .results-section h2 {
+    color: #8A2BE2;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #8A2BE2;
+}
+
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #E6E6FA;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-group input[type="number"]:focus {
+    outline: none;
+    border-color: #FF69B4;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+}
+
+.range-container {
+    margin-top: 10px;
+}
+
+.range-container input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: #E6E6FA;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.range-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #FF69B4;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #8A2BE2;
+}
+
+.calculate-btn, .reset-btn {
+    width: 48%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 4%;
+}
+
+.calculate-btn {
+    background: #8A2BE2;
+    color: white;
+}
+
+.calculate-btn:hover {
+    background: #7B1FA2;
+    transform: translateY(-2px);
+}
+
+.reset-btn {
+    background: #f8f9fa;
+    color: #8A2BE2;
+    border: 2px solid #E6E6FA;
+}
+
+.reset-btn:hover {
+    background: #E6E6FA;
+}
+
+.emi-display {
+    background: linear-gradient(135deg, #8A2BE2 0%, #FF69B4 100%);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.emi-amount .label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.emi-amount .amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #FF69B4;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.card-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.card-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #8A2BE2;
+}
+
+.chart-section {
+    margin-bottom: 25px;
+}
+
+.chart-section h3 {
+    margin-bottom: 15px;
+    color: #8A2BE2;
+}
+
+.chart-container {
+    height: 200px;
+    position: relative;
+}
+
+.amortization-section h3 {
+    margin-bottom: 15px;
+    color: #8A2BE2;
+}
+
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #E6E6FA;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #E6E6FA;
+}
+
+th {
+    background: #8A2BE2;
+    font-weight: 600;
+    color: white;
+}
+
+tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculate-btn, .reset-btn {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+}
